@@ -98,6 +98,17 @@ function createLinkedList(name, head) {
     return (i = undefined);
   }
 
+  function toString(temp = this.head, str = "") {
+    if (temp !== null) {
+      str += `${temp.value} --> `;
+      temp = temp.next;
+      return toString(temp, str);
+    } else {
+      str += "null";
+      return str;
+    }
+  }
+
   return {
     name,
     head,
@@ -110,6 +121,7 @@ function createLinkedList(name, head) {
     pop,
     contains,
     find,
+    toString,
   };
 }
 
