@@ -32,7 +32,11 @@ function createLinkedList(name, head) {
     return size;
   }
 
-  return { name, head, append, prepend, size };
+  function returnHead() {
+    return this.head;
+  }
+
+  return { name, head, append, prepend, size, returnHead };
 }
 
 function createNode(value, next) {
