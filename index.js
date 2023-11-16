@@ -80,6 +80,24 @@ function createLinkedList(name, head) {
     return false;
   }
 
+  function find(value) {
+    let temp = this.head;
+    let i = 0;
+    while (temp.next !== null) {
+      if (temp.value === value) {
+        return i;
+      } else {
+        i += 1;
+        temp = temp.next;
+      }
+    }
+    if (temp.value === value) {
+      // final if statement to catch the tail node outside of while loop
+      return i;
+    }
+    return (i = undefined);
+  }
+
   return {
     name,
     head,
@@ -91,6 +109,7 @@ function createLinkedList(name, head) {
     at,
     pop,
     contains,
+    find,
   };
 }
 
