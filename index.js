@@ -19,7 +19,20 @@ function createLinkedList(name, head) {
     this.head = temp;
   }
 
-  return { name, head, append, prepend };
+  function size() {
+    let temp = this.head;
+    let size = 0;
+    if (temp !== undefined) {
+      size += 1;
+      while (temp.next !== null) {
+        temp = temp.next;
+        size += 1;
+      }
+    }
+    return size;
+  }
+
+  return { name, head, append, prepend, size };
 }
 
 function createNode(value, next) {
