@@ -54,7 +54,17 @@ function createLinkedList(name, head) {
     return temp;
   }
 
-  return { name, head, append, prepend, size, returnHead, returnTail, at };
+  function pop() {
+    let temp = this.head;
+    let newTail;
+    while (temp.next !== null) {
+      newTail = temp;
+      temp = temp.next;
+    }
+    newTail.next = null;
+  }
+
+  return { name, head, append, prepend, size, returnHead, returnTail, at, pop };
 }
 
 function createNode(value, next) {
@@ -70,6 +80,5 @@ const data = createLinkedList("data", head);
 
 data.append("2");
 data.append("3");
-data.append("4");
 
 console.log(data);
