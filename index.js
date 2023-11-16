@@ -1,9 +1,9 @@
 function createLinkedList(name, head) {
   function append(value) {
-    if (head === undefined) {
-      head = createNode(value);
+    if (this.head === undefined) {
+      this.head = createNode(value);
     } else {
-      let temp = head;
+      let temp = this.head;
       while (temp.next !== null) {
         temp = temp.next;
       }
@@ -11,7 +11,15 @@ function createLinkedList(name, head) {
     }
   }
 
-  return { name, head, append };
+  function prepend(value) {
+    const temp = createNode(value);
+    if (this.head !== undefined) {
+      temp.next = this.head;
+    }
+    this.head = temp;
+  }
+
+  return { name, head, append, prepend };
 }
 
 function createNode(value, next) {
@@ -22,12 +30,11 @@ function createNode(value, next) {
 }
 
 const head = createNode("1");
-const next = createNode("2");
 
 const data = createLinkedList("data", head);
 
+data.append("2");
 data.append("3");
-data.append("3");
-data.append("3");
+data.append("4");
 
 console.log(data);
