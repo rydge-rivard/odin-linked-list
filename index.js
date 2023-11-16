@@ -64,7 +64,34 @@ function createLinkedList(name, head) {
     newTail.next = null;
   }
 
-  return { name, head, append, prepend, size, returnHead, returnTail, at, pop };
+  function contains(value) {
+    let temp = this.head;
+    while (temp.next !== null) {
+      if (temp.value === value) {
+        return true;
+      } else {
+        temp = temp.next;
+      }
+    }
+    if (temp.value === value) {
+      // final if statement to catch the tail node outside of while loop
+      return true;
+    }
+    return false;
+  }
+
+  return {
+    name,
+    head,
+    append,
+    prepend,
+    size,
+    returnHead,
+    returnTail,
+    at,
+    pop,
+    contains,
+  };
 }
 
 function createNode(value, next) {
