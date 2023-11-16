@@ -44,7 +44,17 @@ function createLinkedList(name, head) {
     return temp;
   }
 
-  return { name, head, append, prepend, size, returnHead, returnTail };
+  function at(index) {
+    let temp = this.head;
+    j = 0; // start counting list items from 0
+    while (index !== j) {
+      temp = temp.next;
+      j += 1;
+    }
+    return temp;
+  }
+
+  return { name, head, append, prepend, size, returnHead, returnTail, at };
 }
 
 function createNode(value, next) {
